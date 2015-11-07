@@ -1,0 +1,20 @@
+CREATE TABLE `pizzahub`.`pizzasize` ( `pizzasizeid` INT NOT NULL AUTO_INCREMENT , `size` VARCHAR(50) NOT NULL , PRIMARY KEY (`pizzasizeid`)) ENGINE = InnoDB;
+
+CREATE TABLE `pizzahub`.`pizzacrust` ( `pizzacrustid` INT NOT NULL AUTO_INCREMENT , `crust` VARCHAR(50) NOT NULL , PRIMARY KEY (`pizzacrustid`)) ENGINE = InnoDB;
+
+CREATE TABLE `pizzahub`.`pizzatoppings` ( `pizzatoppingsid` INT NOT NULL AUTO_INCREMENT , `toppings` VARCHAR(50) NOT NULL , PRIMARY KEY (`pizzatoppingsid`)) ENGINE = InnoDB;
+
+CREATE TABLE `pizzahub`.`PersonalDetails` ( `PersonalDetailsId` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(200) NOT NULL , `address1` VARCHAR(200) NOT NULL , `address2` VARCHAR(200) NOT NULL , `city` VARCHAR(100) NOT NULL , `province` VARCHAR(50) NOT NULL , `postal` VARCHAR(10) NOT NULL , `phone` VARCHAR(15) NOT NULL , `email` VARCHAR(80) NOT NULL , PRIMARY KEY (`PersonalDetailsId`)) ENGINE = InnoDB;
+
+CREATE TABLE `pizzahub`.`pizzaorder` ( `orderid` INT NOT NULL AUTO_INCREMENT , `PersonalDetailsId` INT NOT NULL , `pizzacrustid` INT NOT NULL , `pizzasizeid` INT NOT NULL , `created` DATETIME NOT NULL , `status` INT NOT NULL DEFAULT '0' , PRIMARY KEY (`orderid`)) ENGINE = InnoDB;
+
+CREATE TABLE `pizzahub`.`ordertoppings` ( `ordertoppingsid` INT NOT NULL AUTO_INCREMENT , `orderid` INT NOT NULL , `toppingsid` INT NOT NULL , PRIMARY KEY (`ordertoppingsid`)) ENGINE = InnoDB;
+
+CREATE TABLE users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(255),
+    role VARCHAR(20),
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);
