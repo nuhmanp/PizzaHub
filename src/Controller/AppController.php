@@ -20,15 +20,15 @@ class AppController extends Controller
             ],
             'logoutRedirect' => [
                 'controller' => 'Pages',
-                'action' => 'display',
-                'home'
+                'action' => 'add'
             ]
         ]);
     }
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        $this->Auth->allow(['add']);
+		$this->Auth->allow(['success']);
     }
 		public function isAuthorized($user)
 	{
